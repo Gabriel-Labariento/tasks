@@ -4,7 +4,7 @@ import priorityImgSrc from "./assets/priority.svg"
 import tasksImgSrc from "./assets/tasks.svg";
 import statusImgSrc from "./assets/status.svg";
 import projectImgSrc from "./assets/section.svg";
-import { createNewTaskButton } from "../createNewTaskButton.js";
+import { createNewTaskButton } from "./createNewTaskButton.js";
  
 const createTaskTableHtml = function () {
     const mainContainer = document.createElement('div');
