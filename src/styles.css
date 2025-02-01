@@ -138,7 +138,7 @@
     border: none;
   }
 
-  .new-task-button:hover{
+  .new-task-button:hover, .new-project-button:hover{
     background-color: var(--darkGray);
     cursor: pointer;
   }
@@ -194,3 +194,17 @@
     background-color: var(--lightGray);
     color: var(--dark);
   }
+
+  .new-project-container{
+    display: flex;
+    justify-content: end;
+  }
+
+  .new-project-button{
+    color: var(--lightGray);
+    background-color: var(--green);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  

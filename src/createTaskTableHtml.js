@@ -5,6 +5,8 @@ import tasksImgSrc from "./assets/tasks.svg";
 import statusImgSrc from "./assets/status.svg";
 import projectImgSrc from "./assets/section.svg";
 import { createNewTaskButton } from "./createNewTaskButton.js";
+import { createNewProjectButton } from "./createNewProjectButton.js";
+
  
 const createTaskTableHtml = function () {
     const mainContainer = document.createElement('div');
@@ -65,11 +67,14 @@ const createTaskTableHtml = function () {
     
     const newTaskContainer = createNewTaskButton();
 
+    const newProjectContainer = createNewProjectButton();
+
     tasksContainer.appendChild(tasksRow);
     tasksContainer.appendChild(newTaskContainer);
 
     mainContainer.appendChild(titleContainer);
     mainContainer.appendChild(tasksContainer);
+    mainContainer.appendChild(newProjectContainer);
     
     const content = document.querySelector("#content");
     content.appendChild(mainContainer);
