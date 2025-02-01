@@ -1,3 +1,5 @@
+import { projects } from "./project.js";
+
 const createNewTaskModal = function () {
     const newTaskDialog = document.createElement("dialog");
     newTaskDialog.id = "new-task-dialog";
@@ -9,6 +11,12 @@ const createNewTaskModal = function () {
     const rowContainer = document.createElement("div");
     rowContainer.className = "row-container";
 
+
+    const projectOptions = [];
+    projects.forEach(project => {
+        projectOptions.push(project.getName());    
+    }); 
+
     const rows = [
         {labelText: "Task Name:", inputType: "text", name: "task-title", id: "task-title"},
         {labelText: "Due Date:", inputType: "date", name: "task-due", id: "task-due"},
@@ -19,7 +27,7 @@ const createNewTaskModal = function () {
             options: ["low", "medium", "high"]
         },
         {labelText: "Parent Project:", inputType: "select", name: "parent-project", id: "parent-project",
-            options: ["Default"]
+            options: projectOptions
         }
     ]
 

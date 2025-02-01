@@ -1,6 +1,5 @@
+import { addNewTask } from "./addNewTask.js";
 import { createNewTaskModal } from "./createNewTaskModal";
-import {Task} from "./addNewTask.js";
-
 
 export const displayNewTaskModal = function() {
     const newTaskModal = createNewTaskModal();
