@@ -54,7 +54,7 @@ const createFormRow = function(labelText, inputType, name, id, options = null){
         input = document.createElement("select");
         input.name = name;
         input.id = id;
-        for (let opt in options){
+        for (let opt of options){
             let option = document.createElement("option");
             option.value = opt;
             if (option.value === "medium" || option.value === "to-do") option.selected = true;
