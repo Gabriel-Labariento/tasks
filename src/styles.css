@@ -144,7 +144,7 @@
   }
 
 
-  #new-task-dialog[open]{
+  #new-task-dialog[open], #new-project-dialog[open]{
     max-width: fit-content;
     display: flex;
     justify-content: center;
@@ -208,3 +208,11 @@
     border-radius: 5px;
   }
   
+  .project-row-container{
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 30px;
+  }

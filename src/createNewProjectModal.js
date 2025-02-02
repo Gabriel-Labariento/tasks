@@ -9,7 +9,7 @@ const createNewProjectModal = function () {
     newProjectForm.formmethod = "dialog"
 
     const rowContainer = document.createElement("div");
-    rowContainer.className = "row-container";
+    rowContainer.className = "project-row-container";
 
 
     const projectOptions = [];
