@@ -3,7 +3,7 @@ import { displayNewTaskModal } from "./displayNewTaskModal.js";
 import { displayNewProjectModal } from "./displayNewProjectModal.js";
 import { createTaskTableHtml } from "./createTaskTableHtml.js";
 import {projects} from "./project.js"; 
-
+import { displayProjects } from "./displayProjects.js";
 
 createTaskTableHtml();
 
@@ -17,10 +17,7 @@ newProjectButton.addEventListener("click", () => {
     displayNewProjectModal();
 });
 
-
-
-
-
+displayProjects();  
 
 
 

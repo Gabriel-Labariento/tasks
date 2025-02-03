@@ -106,7 +106,7 @@
     grid-auto-rows: 30px;
   }
 
-  .tasks-row{
+  .tasks-row, .tasks-row-head{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 30px;
@@ -215,4 +215,16 @@
     /* grid-template-columns: repeat(2, 1fr); */
     grid-template-rows: repeat(2, 1fr);
     row-gap: 30px;
+  }
+
+  .tasks-row:hover{
+    cursor: pointer;
+    color: var(--dark);
+    background-color: var(--darkGray);
+  }
+
+  .switch-color{
+    background-color: var(--darkGray);
+    color: var(--lightGray);
+    cursor: pointer;
   }

@@ -41,7 +41,7 @@ const createTaskTableHtml = function () {
     tasksContainer.className = 'tasks-container';
 
     const tasksRow = document.createElement('div');
-    tasksRow.className = 'tasks-row';
+    tasksRow.className = 'tasks-row-head';
     
     const columns = [
         { class: 'title-col', src: tasksImgSrc, alt: 'Task Icon', text: 'Tasks' },

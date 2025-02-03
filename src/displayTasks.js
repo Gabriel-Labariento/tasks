@@ -12,7 +12,8 @@ const createNewTaskRow = function(taskName, taskDue, taskStatus, taskPriority, p
         column.textContent = col;
         row.appendChild(column);
     });
-
+    
+ 
     return row;
 }
 
@@ -20,8 +21,12 @@ export const displayTasks = function() {
     const reference = document.querySelector(".new-task-container");
     const parent = document.querySelector(".tasks-container");
 
+    const existingRows = parent.querySelectorAll(".tasks-row");
+    existingRows.forEach(row => row.remove());
+
     tasks.forEach(task => {
         const newRow = createNewTaskRow(task.name, task.due, task.status, task.priority, task.parentProject);
+        newRow.id = `row-${tasks.indexOf(task)}`
         parent.insertBefore(newRow, reference);    
     });
 }

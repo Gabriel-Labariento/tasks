@@ -92,10 +92,12 @@ const createButtonRow = function(){
     cancelBtn.type = "button";
     cancelBtn.value = "cancel";
     cancelBtn.textContent = "Cancel"
+    cancelBtn.type = "reset"
 
     submitBtn.className = "submit-btn";
     submitBtn.value = "default"
     submitBtn.textContent = "Add task";
+    submitBtn.type = "submit"
 
     buttonRow.appendChild(cancelBtn);
     buttonRow.appendChild(submitBtn);
