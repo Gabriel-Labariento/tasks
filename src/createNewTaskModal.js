@@ -65,7 +65,7 @@ const createFormRow = function(labelText, inputType, name, id, options = null){
         for (let opt of options){
             let option = document.createElement("option");
             option.value = opt;
-            if (option.value === "medium" || option.value === "to-do") option.selected = true;
+            // if (option.value === "medium" || option.value === "to-do") option.selected = true;
             option.textContent = `${opt[0].toUpperCase()}` + `${opt.substring(1)}`
             input.appendChild(option);
         }

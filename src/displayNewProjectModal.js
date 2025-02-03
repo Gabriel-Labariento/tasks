@@ -1,4 +1,4 @@
-// import { addNewProject } from "./addNewProject.js";
+import { addNewProject } from "./addNewProject.js";
 import { createNewProjectModal } from "./createNewProjectModal.js";
 
 export const displayNewProjectModal = function() {
@@ -9,9 +9,9 @@ export const displayNewProjectModal = function() {
     const cancelBtn = newProjectModal.querySelector(".cancel-btn");
     cancelBtn.addEventListener("click", () => newProjectModal.close());
 
-    // const submitBtn = newProjectModal.querySelector(".submit-btn");
-    // submitBtn.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     addNewProject();
-    // });
+    const submitBtn = newProjectModal.querySelector(".submit-btn");
+    submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        addNewProject();
+    });
 }
