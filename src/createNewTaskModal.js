@@ -6,6 +6,7 @@ const createNewTaskModal = function () {
 
 
     const newTaskForm = document.createElement("form");
+    newTaskForm.id = "new-task-form"
     newTaskForm.formmethod = "dialog"
 
     const rowContainer = document.createElement("div");

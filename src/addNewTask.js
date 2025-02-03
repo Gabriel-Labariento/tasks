@@ -1,9 +1,12 @@
 import { tasks, Task } from "./task.js"
 import { projects } from "./project.js";
+import { displayTasks } from "./displayTasks.js";
+
 
 export const addNewTask = function() {
         const modal = document.querySelector("#new-task-dialog")
-    
+        const form = modal.querySelector("#new-task-form");
+
         const taskName = modal.querySelector("input[name='task-title']").value;
         const taskDue = modal.querySelector("input[name='task-due']").value;
         const taskStatus = modal.querySelector("select[name='task-status']").value
@@ -23,5 +26,9 @@ export const addNewTask = function() {
             }
         }
 
+        
+        form.reset();
         modal.close();
+        displayTasks();
+
 }

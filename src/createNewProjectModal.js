@@ -6,6 +6,7 @@ const createNewProjectModal = function () {
 
 
     const newProjectForm = document.createElement("form");
+    newProjectForm.id = "new-project-form"
     newProjectForm.formmethod = "dialog"
 
     const rowContainer = document.createElement("div");
