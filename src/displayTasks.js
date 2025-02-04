@@ -1,4 +1,5 @@
 import { tasks } from "./task.js";
+import { editTask } from "./editTask.js";
 
 const createNewTaskRow = function(taskName, taskDue, taskStatus, taskPriority, parentProject) {
     const row = document.createElement("div")
@@ -13,7 +14,6 @@ const createNewTaskRow = function(taskName, taskDue, taskStatus, taskPriority, p
         row.appendChild(column);
     });
     
- 
     return row;
 }
 
@@ -27,6 +27,14 @@ export const displayTasks = function() {
     tasks.forEach(task => {
         const newRow = createNewTaskRow(task.name, task.due, task.status, task.priority, task.parentProject);
         newRow.id = `row-${tasks.indexOf(task)}`
-        parent.insertBefore(newRow, reference);    
+        parent.insertBefore(newRow, reference);
+        
+
+
+        newRow.addEventListener("click", () => {
+            const taskId = newRow.id
+            editTask(taskId)
+        });
+
     });
 }

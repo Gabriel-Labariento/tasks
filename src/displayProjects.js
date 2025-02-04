@@ -16,13 +16,11 @@ const displayProjectsModal = function() {
 
     const confirmButton = document.querySelector(".confirm-btn");
     confirmButton.addEventListener("click", () => modal.close())
-
-
-
 }
 
 const createProjectCard = function(project) {
     const card = document.createElement("div");
+    card.className = "project-card"
     const name = document.createElement("div");
     name.textContent = project.name;
 
@@ -38,10 +36,6 @@ const createProjectCard = function(project) {
     
     card.appendChild(name);
     card.appendChild(childTasksContainer);
-
-    const buttonRow = createButtonRow();
-
-    card.appendChild(buttonRow)
 
     return card;
 }
@@ -60,8 +54,14 @@ const createProjectsModal = function() {
 
     projects.forEach(project => {
         const projectCard = createProjectCard(project);
+
         modal.appendChild(projectCard);
     });
+
+    const buttonRow = createButtonRow();
+
+    modal.appendChild(buttonRow)
+
 
     return modal;
 }

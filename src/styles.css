@@ -244,3 +244,7 @@
     color: var(--lightGray);
     cursor: pointer;
   }
+
+  .project-card{
+    padding: 2px;
+  }
