@@ -17,24 +17,21 @@ const displayProjectsModal = function() {
 
 const createProjectCard = function(project) {
     const card = document.createElement("div");
-    const name = document.createElement("h2");
+    const name = document.createElement("div");
     name.textContent = project.name;
 
-    // const childTasksContainer = document.createElement("div");
-    // const childTasks = project;
-    
-    // console.log(childTasks);
-    
-    console.log(project)
-
-    // childTasks.forEach(childTask => {
-    //     const child = document.createElement("h6");
-    //     child.textContent = childTask.name;
-    //     childTasksContainer.appendChild(child);
-    // });
+    const childTasksContainer = document.createElement("div");
+    const childTasks = project.childTasks;
+ 
+   
+    childTasks.forEach(childTask => {
+        const child = document.createElement("h6");
+        child.textContent = childTask.name;
+        childTasksContainer.appendChild(child);
+    });
     
     card.appendChild(name);
-    // card.appendChild(childTasksContainer);
+    card.appendChild(childTasksContainer);
 
     return card;
 }
@@ -52,7 +49,7 @@ const createProjectsModal = function() {
     modal.appendChild(title);
 
     projects.forEach(project => {
-        const projectCard = createProjectCard(project.name);
+        const projectCard = createProjectCard(project);
         modal.appendChild(projectCard);
     });
 
