@@ -144,7 +144,7 @@
   }
 
 
-  #new-task-dialog[open], #new-project-dialog[open]{
+  #new-task-dialog[open], #new-project-dialog[open], #new-project-list[open]{
     max-width: fit-content;
     display: flex;
     justify-content: center;

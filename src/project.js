@@ -5,6 +5,7 @@ export class Project {
     }
 
     getName() {return this.name};
+    getChildTasks() {return this.childTasks}
 }
 
 export let projects = [];
