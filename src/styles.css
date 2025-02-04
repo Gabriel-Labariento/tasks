@@ -144,7 +144,7 @@
   }
 
 
-  #new-task-dialog[open], #new-project-dialog[open]{
+  #new-task-dialog[open], #new-project-dialog[open], #edit-task-dialog[open]{
     max-width: fit-content;
     display: flex;
     justify-content: center;
@@ -198,14 +198,14 @@
     gap: 30px;
   }
 
-  .cancel-btn, .submit-btn, .confirm-btn{
+  .cancel-btn, .submit-btn, .confirm-btn, .delete-btn{
     padding: 0 20px;
     background-color: var(--dark);
     border: 1px solid var(--lightGray);
     color: var(--lightGray);
   }
 
-  .cancel-btn:hover, .submit-btn:hover, .confirm-btn:hover{
+  .cancel-btn:hover, .submit-btn:hover, .confirm-btn:hover, .delete-btn:hover{
     cursor: pointer;
     background-color: var(--lightGray);
     color: var(--dark);

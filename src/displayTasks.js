@@ -26,11 +26,9 @@ export const displayTasks = function() {
 
     tasks.forEach(task => {
         const newRow = createNewTaskRow(task.name, task.due, task.status, task.priority, task.parentProject);
-        newRow.id = `row-${tasks.indexOf(task)}`
+        newRow.id = `${tasks.indexOf(task)}`
         parent.insertBefore(newRow, reference);
         
-
-
         newRow.addEventListener("click", () => {
             const taskId = newRow.id
             editTask(taskId)
