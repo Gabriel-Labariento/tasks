@@ -13,6 +13,12 @@ const displayProjectsModal = function() {
     const modal = createProjectsModal();
     document.querySelector("#content").appendChild(modal);
     modal.show();
+
+    const confirmButton = document.querySelector(".confirm-btn");
+    confirmButton.addEventListener("click", () => modal.close())
+
+
+
 }
 
 const createProjectCard = function(project) {
@@ -20,18 +26,22 @@ const createProjectCard = function(project) {
     const name = document.createElement("div");
     name.textContent = project.name;
 
-    const childTasksContainer = document.createElement("div");
+    const childTasksContainer = document.createElement("ul");
     const childTasks = project.childTasks;
  
    
     childTasks.forEach(childTask => {
-        const child = document.createElement("h6");
+        const child = document.createElement("li");
         child.textContent = childTask.name;
         childTasksContainer.appendChild(child);
     });
     
     card.appendChild(name);
     card.appendChild(childTasksContainer);
+
+    const buttonRow = createButtonRow();
+
+    card.appendChild(buttonRow)
 
     return card;
 }
@@ -54,4 +64,20 @@ const createProjectsModal = function() {
     });
 
     return modal;
+}
+
+const createButtonRow = function(){
+    const buttonRow = document.createElement("div");
+    const confirmBtn = document.createElement("button")
+    buttonRow.className = "button-row";
+
+    confirmBtn.className = "confirm-btn"
+    confirmBtn.type = "button";
+    confirmBtn.value = "Confirm";
+    confirmBtn.textContent = "confirm"
+    confirmBtn.type = "button"
+
+    buttonRow.appendChild(confirmBtn);
+
+    return buttonRow;
 }

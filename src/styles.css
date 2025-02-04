@@ -144,9 +144,25 @@
   }
 
 
-  #new-task-dialog[open], #new-project-dialog[open], #new-project-list[open]{
+  #new-task-dialog[open], #new-project-dialog[open]{
     max-width: fit-content;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 30px;
+    font-size: 1.03rem;
+    position: absolute;
+    margin: 0 auto;
+    top: 100px;
+    background-color: var(--dark);
+    color: var(--lightGray);
+    border: 1px solid var(--lightGray);
+    border-radius: 10px;
+  }
+
+  #new-project-list[open]{
+    max-width: fit-content;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
@@ -182,14 +198,14 @@
     gap: 30px;
   }
 
-  .cancel-btn, .submit-btn{
+  .cancel-btn, .submit-btn, .confirm-btn{
     padding: 0 20px;
     background-color: var(--dark);
     border: 1px solid var(--lightGray);
     color: var(--lightGray);
   }
 
-  .cancel-btn:hover, .submit-btn:hover{
+  .cancel-btn:hover, .submit-btn:hover, .confirm-btn:hover{
     cursor: pointer;
     background-color: var(--lightGray);
     color: var(--dark);
