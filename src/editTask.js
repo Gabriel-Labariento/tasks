@@ -1,7 +1,7 @@
 import { displayTasks } from "./displayTasks.js";
 import { projects } from "./project.js";
 import { tasks } from "./task.js";
-
+import { saveToLocalStorage } from "./handleStorage.js";
 
 export const editTask = function(taskId) {
     const taskToEdit = tasks[taskId];
@@ -127,6 +127,8 @@ export const editTask = function(taskId) {
         const deleteBtn = editTaskModal.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", () => {
             tasks.splice(tasks.indexOf(taskToEdit), 1);
+            saveToLocalStorage.tasks(tasks);
+            saveToLocalStorage.projects(projects);
             editTaskModal.close()
             displayTasks();
         });
@@ -147,6 +149,9 @@ export const editTask = function(taskId) {
         taskToEdit.priority = modal.querySelector("select[name='task-priority']").value
         taskToEdit.parentProject = modal.querySelector("select[name='parent-project']").value
 
+        saveToLocalStorage.tasks(tasks);
+        saveToLocalStorage.projects(projects);
+        
         modal.close();
         displayTasks();
     }

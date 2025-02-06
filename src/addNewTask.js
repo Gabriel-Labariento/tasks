@@ -1,7 +1,7 @@
 import { tasks, Task } from "./task.js"
 import { projects } from "./project.js";
 import { displayTasks } from "./displayTasks.js";
-
+import { saveToLocalStorage } from "./handleStorage.js";
 
 export const addNewTask = function() {
         const modal = document.querySelector("#new-task-dialog")
@@ -22,9 +22,12 @@ export const addNewTask = function() {
             }
         }
 
+        saveToLocalStorage.tasks(tasks);
+        saveToLocalStorage.projects(projects);
+
         const form = modal.querySelector("#new-task-form");
         form.reset()
         displayTasks();
         modal.close();
-
+        
 }

@@ -1,5 +1,5 @@
-import { Project, projects } from "./project";
-
+import { Project, projects } from "./project.js";
+import { saveToLocalStorage } from "./handleStorage.js";
 export const addNewProject = function() {
         const modal = document.querySelector("#new-project-dialog")
         const form = document.querySelector("#new-project-form")
@@ -8,8 +8,8 @@ export const addNewProject = function() {
         const project = new Project(projectName);
 
         projects.push(project);
-
-
         form.reset();
         modal.close();
+
+        saveToLocalStorage.projects(projects);
 }

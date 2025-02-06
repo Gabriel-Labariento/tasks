@@ -8,11 +8,17 @@ const createNewTaskRow = function(taskName, taskDue, taskStatus, taskPriority, p
     const row = document.createElement("div")
     row.className = "tasks-row";
 
-    taskDue = parseISO(taskDue);
-    let formattedDate = new Date(taskDue);
-    formattedDate = format(formattedDate, "dd/MM/yyyy")
+    let formattedDate;
 
-    const cols = [taskName, formattedDate, taskStatus, taskPriority, parentProject];
+    if (!taskDue == "") {
+        taskDue = parseISO(taskDue);
+        formattedDate = new Date(taskDue);
+        formattedDate = format(formattedDate, "dd/MM/yyyy")
+        taskDue = formattedDate
+    }
+    
+
+    const cols = [taskName, taskDue, taskStatus, taskPriority, parentProject];
 
     cols.forEach(col => {
         let column = document.createElement("div");

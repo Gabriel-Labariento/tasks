@@ -1,3 +1,6 @@
+import { loadFromLocalStorage } from "./handleStorage.js";
+
+
 export class Project {
     constructor(name) {
         this.name = name;
@@ -11,3 +14,13 @@ export class Project {
 export let projects = [];
 let defaultProject = new Project("Default");
 projects.push(defaultProject);
+
+
+export const initializeProjects = () => {
+    const savedProjects = loadFromLocalStorage.projects();
+    projects = savedProjects.map(projectData => {
+        const project = new Project(projectData.name);
+        project.childTasks = projectData.childTasks;
+        return project;
+    });
+};

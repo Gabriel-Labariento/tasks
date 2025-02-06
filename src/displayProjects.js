@@ -42,8 +42,12 @@ const createProjectCard = function(project) {
 
 const createProjectsModal = function() {
 
-    const existingModal = document.querySelector("#new-project-list");
-    if (existingModal) existingModal.remove();
+    while (true) {
+        let existingModal = document.querySelector("dialog");
+        if (existingModal) existingModal.remove();
+        else break;
+    } 
+    
 
     const modal = document.createElement("dialog")
     modal.id = "new-project-list";
