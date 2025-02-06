@@ -1,11 +1,18 @@
 import { tasks } from "./task.js";
 import { editTask } from "./editTask.js";
+import {format, parseISO} from "date-fns";
+
+
 
 const createNewTaskRow = function(taskName, taskDue, taskStatus, taskPriority, parentProject) {
     const row = document.createElement("div")
     row.className = "tasks-row";
 
-    const cols = [taskName, taskDue, taskStatus, taskPriority, parentProject];
+    taskDue = parseISO(taskDue);
+    let formattedDate = new Date(taskDue);
+    formattedDate = format(formattedDate, "dd/MM/yyyy")
+
+    const cols = [taskName, formattedDate, taskStatus, taskPriority, parentProject];
 
     cols.forEach(col => {
         let column = document.createElement("div");
