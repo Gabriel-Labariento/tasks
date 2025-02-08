@@ -1,108 +1,137 @@
 import { projects } from "./project.js";
 
 const createNewTaskModal = function () {
-    const newTaskDialog = document.createElement("dialog");
-    newTaskDialog.id = "new-task-dialog";
+  const newTaskDialog = document.createElement("dialog");
+  newTaskDialog.id = "new-task-dialog";
 
+  const newTaskForm = document.createElement("form");
+  newTaskForm.id = "new-task-form";
+  newTaskForm.formmethod = "dialog";
 
-    const newTaskForm = document.createElement("form");
-    newTaskForm.id = "new-task-form"
-    newTaskForm.formmethod = "dialog"
+  const rowContainer = document.createElement("div");
+  rowContainer.className = "row-container";
 
-    const rowContainer = document.createElement("div");
-    rowContainer.className = "row-container";
+  const projectOptions = [];
+  projects.forEach((project) => {
+    projectOptions.push(project.getName());
+  });
 
+  const rows = [
+    {
+      labelText: "Task Name:",
+      inputType: "text",
+      name: "task-title",
+      id: "task-title",
+    },
+    {
+      labelText: "Due Date:",
+      inputType: "date",
+      name: "task-due",
+      id: "task-due",
+    },
+    {
+      labelText: "Status:",
+      inputType: "select",
+      name: "task-status",
+      id: "task-status",
+      options: ["to do", "in progress", "done"],
+    },
+    {
+      labelText: "Priority:",
+      inputType: "select",
+      name: "task-priority",
+      id: "task-priority",
+      options: ["low", "medium", "high"],
+    },
+    {
+      labelText: "Parent Project:",
+      inputType: "select",
+      name: "parent-project",
+      id: "parent-project",
+      options: projectOptions,
+    },
+  ];
 
-    const projectOptions = [];
-    projects.forEach(project => {
-        projectOptions.push(project.getName());    
-    }); 
+  rows.forEach((row) => {
+    let createdRow = createFormRow(
+      row.labelText,
+      row.inputType,
+      row.name,
+      row.id,
+      row.options,
+    );
+    rowContainer.appendChild(createdRow);
+  });
 
-    const rows = [
-        {labelText: "Task Name:", inputType: "text", name: "task-title", id: "task-title"},
-        {labelText: "Due Date:", inputType: "date", name: "task-due", id: "task-due"},
-        {labelText: "Status:", inputType: "select", name: "task-status", id: "task-status",
-            options: ["to do", "in progress", "done"]
-        },
-        {labelText: "Priority:", inputType: "select", name: "task-priority", id: "task-priority",
-            options: ["low", "medium", "high"]
-        },
-        {labelText: "Parent Project:", inputType: "select", name: "parent-project", id: "parent-project",
-            options: projectOptions
-        }
-    ]
+  const buttonRow = createButtonRow();
 
-    rows.forEach(row => {
-        let createdRow = createFormRow(row.labelText, row.inputType, row.name, row.id, row.options);
-        rowContainer.appendChild(createdRow);
-    });
+  rowContainer.appendChild(buttonRow);
 
-    const buttonRow = createButtonRow();
+  newTaskForm.appendChild(rowContainer);
+  newTaskDialog.appendChild(newTaskForm);
 
-    rowContainer.appendChild(buttonRow);
+  return newTaskDialog;
+};
 
-    newTaskForm.appendChild(rowContainer);
-    newTaskDialog.appendChild(newTaskForm);
+const createFormRow = function (
+  labelText,
+  inputType,
+  name,
+  id,
+  options = null,
+) {
+  const row = document.createElement("div");
+  row.className = "form-row";
 
-    
-    return newTaskDialog;
-    
-}
+  const label = document.createElement("label");
+  label.setAttribute("for", name);
+  label.textContent = labelText;
 
-
-const createFormRow = function(labelText, inputType, name, id, options = null){
-    const row = document.createElement("div");
-    row.className = "form-row"
-
-    const label = document.createElement("label");
-    label.setAttribute("for", name)
-    label.textContent = labelText;
-
-    let input;
-    if (inputType === "select"){
-        input = document.createElement("select");
-        input.name = name;
-        input.id = id;
-        for (let opt of options){
-            let option = document.createElement("option");
-            option.value = opt;
-            // if (option.value === "medium" || option.value === "to-do") option.selected = true;
-            option.textContent = `${opt[0].toUpperCase()}` + `${opt.substring(1)}`
-            input.appendChild(option);
-        }
-    } else {
-        input = document.createElement("input");
-        input.type = inputType;
-        input.name = name;
-        input.id = id;
+  let input;
+  if (inputType === "select") {
+    input = document.createElement("select");
+    input.name = name;
+    input.id = id;
+    for (let opt of options) {
+      let option = document.createElement("option");
+      option.value = opt;
+      // if (option.value === "medium" || option.value === "to-do") option.selected = true;
+      option.textContent = `${opt[0].toUpperCase()}` + `${opt.substring(1)}`;
+      input.appendChild(option);
     }
+  } else {
+    input = document.createElement("input");
+    input.type = inputType;
+    input.name = name;
+    input.id = id;
+  }
 
-    row.appendChild(label);
-    row.appendChild(input);
+  row.appendChild(label);
+  row.appendChild(input);
 
-    return row;    
-}
+  return row;
+};
 
-const createButtonRow = function(){
-    const buttonRow = document.createElement("div");
-    const cancelBtn = document.createElement("button")
-    const submitBtn = document.createElement("button");
+const createButtonRow = function () {
+  const buttonRow = document.createElement("div");
+  const cancelBtn = document.createElement("button");
+  const submitBtn = document.createElement("button");
 
-    cancelBtn.className = "cancel-btn"
-    cancelBtn.type = "button";
-    cancelBtn.value = "cancel";
-    cancelBtn.textContent = "Cancel"
-    cancelBtn.type = "reset"
+  cancelBtn.className = "cancel-btn";
+  cancelBtn.type = "button";
+  cancelBtn.value = "cancel";
+  cancelBtn.textContent = "Cancel";
+  cancelBtn.type = "reset";
 
-    submitBtn.className = "submit-btn";
-    submitBtn.value = "default"
-    submitBtn.textContent = "Add task";
-    submitBtn.type = "submit"
+  submitBtn.className = "submit-btn";
+  submitBtn.value = "default";
+  submitBtn.textContent = "Add task";
+  submitBtn.type = "submit";
 
-    buttonRow.appendChild(cancelBtn);
-    buttonRow.appendChild(submitBtn);
+  buttonRow.appendChild(cancelBtn);
+  buttonRow.appendChild(submitBtn);
 
-    return buttonRow;
-}
+  return buttonRow;
+};
 
-export {createNewTaskModal};
+export { createNewTaskModal };

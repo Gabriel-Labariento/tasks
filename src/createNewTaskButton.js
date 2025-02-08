@@ -1,14 +1,14 @@
-const createNewTaskButton = function(){
-    const newTaskContainer = document.createElement('div');
-    newTaskContainer.className = 'new-task-container';
-    
-    const newTaskButton = document.createElement('button');
-    newTaskButton.className = 'new-task-button col';
-    newTaskButton.textContent = '+ New';
+const createNewTaskButton = function () {
+  const newTaskContainer = document.createElement("div");
+  newTaskContainer.className = "new-task-container";
 
-    newTaskContainer.appendChild(newTaskButton);
+  const newTaskButton = document.createElement("button");
+  newTaskButton.className = "new-task-button col";
+  newTaskButton.textContent = "+ New";
 
-    return newTaskContainer;
-}
+  newTaskContainer.appendChild(newTaskButton);
 
-export {createNewTaskButton}
+  return newTaskContainer;
+};
+
+export { createNewTaskButton };

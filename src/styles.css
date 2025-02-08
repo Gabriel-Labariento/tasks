@@ -1,250 +1,280 @@
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  
-  /* 2. Remove default margin */
-  * {
-    margin: 0;
-  }
-  
-  body {
-    /* 3. Add accessible line-height */
-    line-height: 1.5;
-    /* 4. Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  /* 5. Improve media defaults */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  
-  /* 6. Inherit fonts for form controls */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  
-  /* 7. Avoid text overflows */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  
-  /* 8. Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  
-  /*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
     9. Create a root stacking context
   */
-  #root, #__next {
-    isolation: isolate;
-  }
+#root,
+#__next {
+  isolation: isolate;
+}
 
-  :root{
-    --dark: #191919;
-    --lightGray: #d2d2d2;
-    --darkGray: #434343;
-    --yellow: #89632a;
-    --blue: #28456c;
-    --green: #2a583e;
-  }
+:root {
+  --dark: #191919;
+  --lightGray: #d2d2d2;
+  --darkGray: #434343;
+  --yellow: #89632a;
+  --blue: #28456c;
+  --green: #2a583e;
+}
 
-  body{
-    min-height: 100vh;
-  }
+body {
+  min-height: 100vh;
+}
 
-  .main-container{
-    height: 100vh;
-    background-color: var(--dark);
-    display: grid;
-    grid-template-rows: 90px 1fr;
-    padding: 70px 100px;
-    font-family: sans-serif;
-    gap: 20px;
-  }
+.main-container {
+  height: 100vh;
+  background-color: var(--dark);
+  display: grid;
+  grid-template-rows: 90px 1fr;
+  padding: 70px 100px;
+  font-family: sans-serif;
+  gap: 20px;
+}
 
-  .title-container{
-    height: 100%;
-    display: grid;
-    grid-template-rows: 70px 20px;
-    
-    align-items: end;
-    gap: 5px;
-  }
+.title-container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 70px 20px;
 
-  .title-icon{
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    align-items: end;
-  }
+  align-items: end;
+  gap: 5px;
+}
 
-  .title, .subtitle{
-    color: var(--lightGray);
-  }
+.title-icon {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: end;
+}
 
-  .title{
-    font-size: 2.8rem;
-  }
+.title,
+.subtitle {
+  color: var(--lightGray);
+}
 
-  .subtitle{
-    font-weight: bold;
-    padding-left: 10px;
-  }
+.title {
+  font-size: 2.8rem;
+}
 
-  .check-icon{
-    height: 70px;
-  }
+.subtitle {
+  font-weight: bold;
+  padding-left: 10px;
+}
 
-  .task-container{
-    display: grid;
-    grid-auto-rows: 30px;
-  }
+.check-icon {
+  height: 70px;
+}
 
-  .tasks-row, .tasks-row-head{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 30px;
-    color: var(--lightGray);
-  }
+.task-container {
+  display: grid;
+  grid-auto-rows: 30px;
+}
 
-  .col-head-icon{
-    height: 30px;
-    
-  }
+.tasks-row,
+.tasks-row-head {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 30px;
+  color: var(--lightGray);
+}
 
-  .col{
-    border-top: 0.5px solid var(--darkGray);
-    border-bottom: 0.5px solid var(--darkGray);
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    font-size: 0.9rem;
-  }
+.col-head-icon {
+  height: 30px;
+}
 
-  .new-task-row{
-    display: grid;
-  }
+.col {
+  border-top: 0.5px solid var(--darkGray);
+  border-bottom: 0.5px solid var(--darkGray);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 0.9rem;
+}
 
-  .new-task-button{
-    color: var(--lightGray);
-    width: 100%;
-    background-color: var(--dark);
-    border: none;
-  }
+.new-task-row {
+  display: grid;
+}
 
-  .new-task-button:hover, .new-project-button:hover{
-    background-color: var(--darkGray);
-    cursor: pointer;
-  }
+.new-task-button {
+  color: var(--lightGray);
+  width: 100%;
+  background-color: var(--dark);
+  border: none;
+}
 
+.new-task-button:hover,
+.new-project-button:hover {
+  background-color: var(--darkGray);
+  cursor: pointer;
+}
 
-  #new-task-dialog[open], #new-project-dialog[open], #edit-task-dialog[open]{
-    max-width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    padding: 30px;
-    font-size: 1.03rem;
-    position: absolute;
-    margin: 0 auto;
-    top: 100px;
-    background-color: var(--dark);
-    color: var(--lightGray);
-    border: 1px solid var(--lightGray);
-    border-radius: 10px;
-  }
+#new-task-dialog[open],
+#new-project-dialog[open],
+#edit-task-dialog[open] {
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 30px;
+  font-size: 1.03rem;
+  position: absolute;
+  margin: 0 auto;
+  top: 100px;
+  background-color: var(--dark);
+  color: var(--lightGray);
+  border: 1px solid var(--lightGray);
+  border-radius: 10px;
+}
 
-  #new-project-list[open]{
-    max-width: fit-content;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    padding: 30px;
-    font-size: 1.03rem;
-    position: absolute;
-    margin: 0 auto;
-    top: 100px;
-    background-color: var(--dark);
-    color: var(--lightGray);
-    border: 1px solid var(--lightGray);
-    border-radius: 10px;
-  }
+#new-project-list[open] {
+  max-width: fit-content;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 30px;
+  font-size: 1.03rem;
+  position: absolute;
+  margin: 0 auto;
+  top: 100px;
+  background-color: var(--dark);
+  color: var(--lightGray);
+  border: 1px solid var(--lightGray);
+  border-radius: 10px;
+}
 
-  .row-container{
-    width: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-rows: repeat(6, 1fr);
-    row-gap: 30px;
-  }
+.row-container {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 30px;
+}
 
-  .form-row{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  .button-row{
-    display: flex;
-    justify-content: end;
-    padding: 0 2px 0 0;
-    gap: 30px;
-  }
+.button-row {
+  display: flex;
+  justify-content: end;
+  padding: 0 2px 0 0;
+  gap: 30px;
+}
 
-  .cancel-btn, .submit-btn, .confirm-btn, .delete-btn{
-    padding: 0 20px;
-    background-color: var(--dark);
-    border: 1px solid var(--lightGray);
-    color: var(--lightGray);
-  }
+.cancel-btn,
+.submit-btn,
+.confirm-btn,
+.delete-btn {
+  padding: 0 20px;
+  background-color: var(--dark);
+  border: 1px solid var(--lightGray);
+  color: var(--lightGray);
+}
 
-  .cancel-btn:hover, .submit-btn:hover, .confirm-btn:hover, .delete-btn:hover{
-    cursor: pointer;
-    background-color: var(--lightGray);
-    color: var(--dark);
-  }
+.cancel-btn:hover,
+.submit-btn:hover,
+.confirm-btn:hover,
+.delete-btn:hover {
+  cursor: pointer;
+  background-color: var(--lightGray);
+  color: var(--dark);
+}
 
-  .new-project-container{
-    display: flex;
-    justify-content: end;
-  }
+.new-project-container {
+  display: flex;
+  justify-content: end;
+}
 
-  .new-project-button{
-    color: var(--lightGray);
-    background-color: var(--green);
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  
-  .project-row-container{
-    width: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 30px;
-  }
+.new-project-button {
+  color: var(--lightGray);
+  background-color: var(--green);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
 
-  .tasks-row:hover{
-    cursor: pointer;
-    color: var(--dark);
-    background-color: var(--darkGray);
-  }
+.project-row-container {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 30px;
+}
 
-  .switch-color{
-    background-color: var(--darkGray);
-    color: var(--lightGray);
-    cursor: pointer;
-  }
+.tasks-row:hover {
+  cursor: pointer;
+  color: var(--dark);
+  background-color: var(--darkGray);
+}
 
-  .project-card{
-    padding: 2px;
-  }
+.switch-color {
+  background-color: var(--darkGray);
+  color: var(--lightGray);
+  cursor: pointer;
+}
+
+.project-card {
+  padding: 2px;
+}

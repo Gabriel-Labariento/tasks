@@ -1,87 +1,86 @@
 import { projects, Project } from "./project.js";
 
-export const displayProjects = function() {
-    const parentCol = document.querySelector(".parent-col");
-    parentCol.addEventListener("mouseenter", () => parentCol.classList.add("switch-color"))
-    parentCol.addEventListener("mouseleave", () => parentCol.classList.remove("switch-color"))
+export const displayProjects = function () {
+  const parentCol = document.querySelector(".parent-col");
+  parentCol.addEventListener("mouseenter", () =>
+    parentCol.classList.add("switch-color"),
+  );
+  parentCol.addEventListener("mouseleave", () =>
+    parentCol.classList.remove("switch-color"),
+  );
 
+  parentCol.addEventListener("click", () => displayProjectsModal());
+};
 
-    parentCol.addEventListener("click", () => displayProjectsModal()); 
-}
+const displayProjectsModal = function () {
+  const modal = createProjectsModal();
+  document.querySelector("#content").appendChild(modal);
+  modal.show();
 
-const displayProjectsModal = function() {
-    const modal = createProjectsModal();
-    document.querySelector("#content").appendChild(modal);
-    modal.show();
+  const confirmButton = document.querySelector(".confirm-btn");
+  confirmButton.addEventListener("click", () => modal.close());
+};
 
-    const confirmButton = document.querySelector(".confirm-btn");
-    confirmButton.addEventListener("click", () => modal.close())
-}
+const createProjectCard = function (project) {
+  const card = document.createElement("div");
+  card.className = "project-card";
+  const name = document.createElement("div");
+  name.textContent = project.name;
 
-const createProjectCard = function(project) {
-    const card = document.createElement("div");
-    card.className = "project-card"
-    const name = document.createElement("div");
-    name.textContent = project.name;
+  const childTasksContainer = document.createElement("ul");
+  const childTasks = project.childTasks;
 
-    const childTasksContainer = document.createElement("ul");
-    const childTasks = project.childTasks;
- 
-   
-    childTasks.forEach(childTask => {
-        const child = document.createElement("li");
-        child.textContent = childTask.name;
-        childTasksContainer.appendChild(child);
-    });
-    
-    card.appendChild(name);
-    card.appendChild(childTasksContainer);
+  childTasks.forEach((childTask) => {
+    const child = document.createElement("li");
+    child.textContent = childTask.name;
+    childTasksContainer.appendChild(child);
+  });
 
-    return card;
-}
+  card.appendChild(name);
+  card.appendChild(childTasksContainer);
 
-const createProjectsModal = function() {
+  return card;
+};
 
-    while (true) {
-        let existingModal = document.querySelector("dialog");
-        if (existingModal) existingModal.remove();
-        else break;
-    } 
-    
+const createProjectsModal = function () {
+  while (true) {
+    let existingModal = document.querySelector("dialog");
+    if (existingModal) existingModal.remove();
+    else break;
+  }
 
-    const modal = document.createElement("dialog")
-    modal.id = "new-project-list";
+  const modal = document.createElement("dialog");
+  modal.id = "new-project-list";
 
-    const title = document.createElement("h1");
-    title.textContent = "Projects List";
-    modal.appendChild(title);
+  const title = document.createElement("h1");
+  title.textContent = "Projects List";
+  modal.appendChild(title);
 
-    projects.forEach(project => {
-        const projectCard = createProjectCard(project);
+  projects.forEach((project) => {
+    const projectCard = createProjectCard(project);
 
-        modal.appendChild(projectCard);
-    });
+    modal.appendChild(projectCard);
+  });
 
-    const buttonRow = createButtonRow();
+  const buttonRow = createButtonRow();
 
-    modal.appendChild(buttonRow)
+  modal.appendChild(buttonRow);
 
+  return modal;
+};
 
-    return modal;
-}
+const createButtonRow = function () {
+  const buttonRow = document.createElement("div");
+  const confirmBtn = document.createElement("button");
+  buttonRow.className = "button-row";
 
-const createButtonRow = function(){
-    const buttonRow = document.createElement("div");
-    const confirmBtn = document.createElement("button")
-    buttonRow.className = "button-row";
+  confirmBtn.className = "confirm-btn";
+  confirmBtn.type = "button";
+  confirmBtn.value = "Confirm";
+  confirmBtn.textContent = "confirm";
+  confirmBtn.type = "button";
 
-    confirmBtn.className = "confirm-btn"
-    confirmBtn.type = "button";
-    confirmBtn.value = "Confirm";
-    confirmBtn.textContent = "confirm"
-    confirmBtn.type = "button"
+  buttonRow.appendChild(confirmBtn);
 
-    buttonRow.appendChild(confirmBtn);
-
-    return buttonRow;
-}
+  return buttonRow;
+};

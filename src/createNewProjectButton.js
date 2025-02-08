@@ -1,14 +1,14 @@
-const createNewProjectButton = function(){
-    const newProjectContainer = document.createElement('div');
-    newProjectContainer.className = 'new-project-container';
-    
-    const newProjectButton = document.createElement('button');
-    newProjectButton.className = 'new-project-button col';
-    newProjectButton.textContent = 'New Project';
+const createNewProjectButton = function () {
+  const newProjectContainer = document.createElement("div");
+  newProjectContainer.className = "new-project-container";
 
-    newProjectContainer.appendChild(newProjectButton);
+  const newProjectButton = document.createElement("button");
+  newProjectButton.className = "new-project-button col";
+  newProjectButton.textContent = "New Project";
 
-    return newProjectContainer;
-}
+  newProjectContainer.appendChild(newProjectButton);
 
-export {createNewProjectButton}
+  return newProjectContainer;
+};
+
+export { createNewProjectButton };
